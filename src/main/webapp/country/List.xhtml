@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListCountryTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListCountryEmpty}" rendered="#{countryController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{countryController.items.rowCount > 0}">
+                    <h:outputText value="#{countryController.pagination.pageFirstItem + 1}..#{countryController.pagination.pageLastItem + 1}/#{countryController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{countryController.previous}" value="#{bundle.Previous} #{countryController.pagination.pageSize}" rendered="#{countryController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{countryController.next}" value="#{bundle.Next} #{countryController.pagination.pageSize}" rendered="#{countryController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{countryController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCountryTitle_code}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.code}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCountryTitle_name}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.name}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCountryTitle_continent}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.continent}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCountryTitle_region}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.region}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCountryTitle_surfaceArea}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.surfaceArea}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCountryTitle_indepYear}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.indepYear}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCountryTitle_population}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.population}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCountryTitle_lifeExpectancy}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.lifeExpectancy}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCountryTitle_gnp}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.gnp}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCountryTitle_GNPOld}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.GNPOld}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCountryTitle_localName}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.localName}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCountryTitle_governmentForm}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.governmentForm}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCountryTitle_headOfState}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.headOfState}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCountryTitle_capital}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.capital}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCountryTitle_code2}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.code2}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{countryController.prepareView}" value="#{bundle.ListCountryViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{countryController.prepareEdit}" value="#{bundle.ListCountryEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{countryController.destroy}" value="#{bundle.ListCountryDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{countryController.prepareCreate}" value="#{bundle.ListCountryCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListCountryIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

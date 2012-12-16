@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditCityTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditCityLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{cityController.selected.id}" title="#{bundle.EditCityTitle_id}" required="true" requiredMessage="#{bundle.EditCityRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.EditCityLabel_name}" for="name" />
+                    <h:inputText id="name" value="#{cityController.selected.name}" title="#{bundle.EditCityTitle_name}" required="true" requiredMessage="#{bundle.EditCityRequiredMessage_name}"/>
+                    <h:outputLabel value="#{bundle.EditCityLabel_countryCode}" for="countryCode" />
+                    <h:inputText id="countryCode" value="#{cityController.selected.countryCode}" title="#{bundle.EditCityTitle_countryCode}" required="true" requiredMessage="#{bundle.EditCityRequiredMessage_countryCode}"/>
+                    <h:outputLabel value="#{bundle.EditCityLabel_district}" for="district" />
+                    <h:inputText id="district" value="#{cityController.selected.district}" title="#{bundle.EditCityTitle_district}" required="true" requiredMessage="#{bundle.EditCityRequiredMessage_district}"/>
+                    <h:outputLabel value="#{bundle.EditCityLabel_population}" for="population" />
+                    <h:inputText id="population" value="#{cityController.selected.population}" title="#{bundle.EditCityTitle_population}" required="true" requiredMessage="#{bundle.EditCityRequiredMessage_population}"/>
+                </h:panelGrid>
+                <h:commandLink action="#{cityController.update}" value="#{bundle.EditCitySaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditCityViewLink}"/>
+                <br />
+                <h:commandLink action="#{cityController.prepareList}" value="#{bundle.EditCityShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditCityIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

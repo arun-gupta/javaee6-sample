@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListCountryLanguageTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListCountryLanguageEmpty}" rendered="#{countryLanguageController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{countryLanguageController.items.rowCount > 0}">
+                    <h:outputText value="#{countryLanguageController.pagination.pageFirstItem + 1}..#{countryLanguageController.pagination.pageLastItem + 1}/#{countryLanguageController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{countryLanguageController.previous}" value="#{bundle.Previous} #{countryLanguageController.pagination.pageSize}" rendered="#{countryLanguageController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{countryLanguageController.next}" value="#{bundle.Next} #{countryLanguageController.pagination.pageSize}" rendered="#{countryLanguageController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{countryLanguageController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCountryLanguageTitle_countryLanguagePK_language}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.countryLanguagePK.language}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCountryLanguageTitle_countryLanguagePK_countryCode}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.countryLanguagePK.countryCode}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCountryLanguageTitle_isOfficial}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.isOfficial}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCountryLanguageTitle_percentage}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.percentage}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{countryLanguageController.prepareView}" value="#{bundle.ListCountryLanguageViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{countryLanguageController.prepareEdit}" value="#{bundle.ListCountryLanguageEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{countryLanguageController.destroy}" value="#{bundle.ListCountryLanguageDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{countryLanguageController.prepareCreate}" value="#{bundle.ListCountryLanguageCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListCountryLanguageIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditCountryLanguageTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditCountryLanguageLabel_countryLanguagePK_language}" for="countryLanguagePK_language" />
+                    <h:inputText id="countryLanguagePK_language" value="#{countryLanguageController.selected.countryLanguagePK.language}" title="#{bundle.EditCountryLanguageTitle_countryLanguagePK_language}" required="true" requiredMessage="#{bundle.EditCountryLanguageRequiredMessage_countryLanguagePK_language}"/>
+                    <h:outputLabel value="#{bundle.EditCountryLanguageLabel_countryLanguagePK_countryCode}" for="countryLanguagePK_countryCode" />
+                    <h:inputText id="countryLanguagePK_countryCode" value="#{countryLanguageController.selected.countryLanguagePK.countryCode}" title="#{bundle.EditCountryLanguageTitle_countryLanguagePK_countryCode}" required="true" requiredMessage="#{bundle.EditCountryLanguageRequiredMessage_countryLanguagePK_countryCode}"/>
+                    <h:outputLabel value="#{bundle.EditCountryLanguageLabel_isOfficial}" for="isOfficial" />
+                    <h:inputText id="isOfficial" value="#{countryLanguageController.selected.isOfficial}" title="#{bundle.EditCountryLanguageTitle_isOfficial}" required="true" requiredMessage="#{bundle.EditCountryLanguageRequiredMessage_isOfficial}"/>
+                    <h:outputLabel value="#{bundle.EditCountryLanguageLabel_percentage}" for="percentage" />
+                    <h:inputText id="percentage" value="#{countryLanguageController.selected.percentage}" title="#{bundle.EditCountryLanguageTitle_percentage}" required="true" requiredMessage="#{bundle.EditCountryLanguageRequiredMessage_percentage}"/>
+                </h:panelGrid>
+                <h:commandLink action="#{countryLanguageController.update}" value="#{bundle.EditCountryLanguageSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditCountryLanguageViewLink}"/>
+                <br />
+                <h:commandLink action="#{countryLanguageController.prepareList}" value="#{bundle.EditCountryLanguageShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditCountryLanguageIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
