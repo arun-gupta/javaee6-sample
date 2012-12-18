@@ -50,7 +50,7 @@ import org.sample.entities.CountryLanguage;
 
 @Stateless
 public class CountryLanguageFacade extends AbstractFacade<CountryLanguage> {
-    @PersistenceContext(unitName = "helloworld2_helloworld2_war_1.0PU")
+    @PersistenceContext
     private EntityManager em;
 
     @Override

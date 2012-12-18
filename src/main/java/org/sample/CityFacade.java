@@ -50,7 +50,7 @@ import org.sample.entities.City;
 
 @Stateless
 public class CityFacade extends AbstractFacade<City> {
-    @PersistenceContext(unitName = "helloworld2_helloworld2_war_1.0PU")
+    @PersistenceContext
     private EntityManager em;
 
     @Override
