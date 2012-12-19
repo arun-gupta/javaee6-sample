@@ -38,9 +38,6 @@
       <scope>provided</scope>
     </dependency>
   </dependencies>
-  <build>
-      <finalName>javaee6-sample</finalName>
-  </build>
   <profiles>
     <profile>
      <!-- When built in OpenShift the 'openshift' profile will be used when invoking mvn. -->
