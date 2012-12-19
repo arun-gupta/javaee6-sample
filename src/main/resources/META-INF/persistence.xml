@@ -4,7 +4,7 @@
     <jta-data-source>java:jboss/datasources/MysqlDS</jta-data-source>
     <!--<jta-data-source>java:/mydb</jta-data-source>-->
     <!--<jta-data-source>helloworld2</jta-data-source>-->
-    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <!--<exclude-unlisted-classes>false</exclude-unlisted-classes>-->
     <properties/>
   </persistence-unit>
 </persistence>
