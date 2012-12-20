@@ -3,17 +3,25 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html">
     <h:head>
-        <title>Facelet Title</title>
+        <title>Java EE 6 Sample Application</title>
         <h:outputStylesheet name="css/jsfcrud.css"/>
     </h:head>
     <h:body>
-        Hello from Facelets
+        <h2>Getting Started with Java EE 6</h2>
+
+	<font size="+1">This page demonstrates a Java EE 6 Sample Application 
+            using JavaSerer Faces 2, Enterprise JavaBeans 3.1, Contexts 
+            and Dependency Injection 1.0, and Java Persistence API 2. The 
+            application can be cloned from 
+            <a href="http://github.com/arun-gupta/javaee6-sample">here</a>.</font> 
+            It is a CRUD application for cities in different countries.
+<br/><br/>
+
+        <h:link outcome="/city/List" value="Show All Cities"/>
         <br />
-        <h:link outcome="/city/List" value="Show All City Items"/>
+        <h:link outcome="/country/List" value="Show All Countries"/>
         <br />
-        <h:link outcome="/country/List" value="Show All Country Items"/>
-        <br />
-        <h:link outcome="/countryLanguage/List" value="Show All CountryLanguage Items"/>
+        <h:link outcome="/countryLanguage/List" value="Show All CountryLanguages"/>
     </h:body>
 
 
