@@ -10,7 +10,7 @@ How to try it ?
    https://github.com/arun-gupta/javaee6-sample when installing the
    cartridge. This will allow the sample code to be populated
    automatically.
-1. Install MySQL cartridge on the same gear.
+1. Add MySQL cartridge on the same gear.
 
 Your application is now live at http://<app>-domain.rhcloud.com.
 
