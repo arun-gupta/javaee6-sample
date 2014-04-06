@@ -50,7 +50,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * @author Arun Gupta
  */
-@WebServlet(name = "TestServlet", urlPatterns = {"/TestServlet"})
+@WebServlet(urlPatterns = "/TestServlet")
 public class TestServlet extends HttpServlet {
 
     /**
